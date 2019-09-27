@@ -1,4 +1,4 @@
-# example code for web.py
+# Example code for web.py
 
 web.py is a web framework for Python that is as simple as it is powerful.
 
