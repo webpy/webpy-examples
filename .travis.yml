@@ -1,0 +1,17 @@
+language: python
+python: 2.7
+services:
+  - mysql
+  - postgresql
+before_install:
+  - sudo mkdir -p /usr/include/postgresql/8.4/server
+install:
+  - pip install DBUtils mysql-connector psycopg2 PyMySQL web.py
+  # - pip install cheroot markdown git+https://github.com/webpy/webpy.git
+before_script:
+  - psql -c 'create database webpy;' -U postgres
+  - mysql --user=root -e "create user 'scott'@'localhost' identified by 'tiger'; create database webpy; grant all privileges on webpy.* to 'scott'@'localhost' with grant option;"
+script:
+  - true  # Can we test the following somehow?  With https://www.seleniumhq.org ?
+  # - python skeleton-code/code.py || true
+  # - python todo-list/todo.py || true
