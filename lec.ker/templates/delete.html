@@ -1,0 +1,7 @@
+<p><center><h1>lec.ker</h1></center></p>
+<form name = "bookmarks" method="post" action="delete">          <p><h2>Delete Bookmarks:</h2></p>
+  <p>           #for bookmark in $bookmarks
+        <input type="checkbox" name="$bookmark.id" value="1"> <a href="$bookmark.url"> $bookmark.title </a><br>           #end for
+  </p>          <p><input type="submit" value="Delete" />          </p>        </form>
+<p>        <hr/>        </p>
+<a href="../">Back</a>

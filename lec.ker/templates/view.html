@@ -1,0 +1,16 @@
+<p><center><h1>lec.ker</h1></center></p>
+<p>        <hr/>        </p>
+<center>        <form name="search" method="post" action="search/#">        <p>        <p>        <input type="text" name="tags" size="50" />        </p>        <input type="submit" value="Search" />        </p>        </form>        </center>
+<p>        <hr/>        </p>
+<table border="0" width="100%">        #for bookmark in $bookmarks
+     <colgroup>               <col width="50%">               <col width="35%">               <col width="15%">             </colgroup>             <tr>             <form name="del$bookmark.id" method="post" action="delete">             <td>               <a href="$bookmark.url"> $bookmark.title </a>             </td>             <td>             #for tag in $bookmark.tags
+          <a href="/search/$tag"> $tag </a> |
+     #end for
+     </td>             <td align="right">             <a href="edit/$bookmark.id">(edit)</a>             <input type="hidden" name="$bookmark.id" value="1" />             <a href="#" onclick=document.del${bookmark.id}.submit()>(delete)</a>             </td>             </form>             </tr>        #end for
+</table>
+<p>        <hr/>        </p>
+<form name="add" method="post" action="add">        <table border="0" width="100%">        <p>        <tr>          <td>            Title:
+  </td>          <td>            <input type="text" name="title" size="100" />          </td>        </tr>        <tr>          <td>            Url:
+  </td>          <td>            <input type="text" name="url" size="100" />          </td>        </tr>        <tr>          <td>            Tags:
+  </td>          <td>            <input type="text" name="tags" size="100" />          </td>        </tr>        </p>        </table>        <p>        <input type="submit" value="Add" />        </p>        </form>
+<a href="delete">Delete Bookmarks</a>

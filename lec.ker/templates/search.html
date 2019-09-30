@@ -1,0 +1,12 @@
+<p><center><h1>lec.ker</h1></center></p>
+<table border="0" width="100%">        #for bookmark in $bookmarks
+     <colgroup>               <col width="50%">               <col width="35%">               <col width="15%">             </colgroup>             <tr>             <form name="del$bookmark.id" method="post" action="../delete">             <td>               <a href="$bookmark.url"> $bookmark.title </a>             </td>             <td>             #for tag in $bookmark.tags
+          <a href="../search/$tag"> $tag </a> |
+     #end for
+     </td>             <td align="right">             <a href="../edit/$bookmark.id">(edit)</a>             <input type="hidden" name="$bookmark.id" value="1" />             <a href="#" onclick=document.del${bookmark.id}.submit()>(delete)</a>             </form>             </td>             </form>             </tr>        #end for
+</table>        #if $empty
+     No Bookmarks were found.
+#end if
+</p>
+<p>        <hr/>        </p>
+<a href="../">Back</a>
