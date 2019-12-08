@@ -2,7 +2,7 @@ $def with (page)
 
 <html>
 <head>
-    $if page.has_key('title'):
+    $if 'title' in page:
         <title>$page.title</title>
     $else:
         <title>My Wiki</title>
